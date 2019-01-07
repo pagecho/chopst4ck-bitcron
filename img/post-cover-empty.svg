@@ -1,0 +1,8 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="68px" height="68px" viewBox="0 0 68 68" xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <title>Product Icon</title>
+  <description>Squarespace Blog icon for product related content</description>
+ <path id="icon-product" fill="#FFFFFF" d="M34,0.882l-33,16.5v33.236l33,16.5l33-16.5V17.382L34,0.882z M63.764,18L34,32.882
+	L4.236,18L34,3.118L63.764,18z M3,19.618l30,15v29.764l-30-15V19.618z M35,64.382V34.618l30-15v29.764L35,64.382z"/>
+</svg>

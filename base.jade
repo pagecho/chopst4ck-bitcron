@@ -1,0 +1,40 @@
+html
+
+	head
+		+h.headers
+		block title
+			title= posts.keywords or post.title or posts.tags.join('+') or posts.category.title or site.title
+		+h.load('markdown')
+		+h.load('jquery')
+		+h.load('/template/pure-custom.css')
+		+h.load('/template/style.scss')
+		+h.i18n('Home', '首页')
+	body
+		#header:.body_container:.header-inner.clearfix
+			.site-name
+				a(href='/')
+					#logo= site.title
+				if request.path == '/'	
+					h1.title= site.title
+			#nav-menu.hidden-if-min
+				+site.just_nav
+			form#search.hidden-if-min
+					input#search_value.text(placeholder="Search",type="text",value=request.args.s, onkeyup="if (event.keyCode == 13) search();")
+		#layout
+			block postneck
+			block content
+		#footer:.body_container
+			.foot-log= '2017 © '
+				a(href='/', real="nofollow")= site.title
+				. Powered by
+				a(rel="nofollow", target="_blank", href="https://www.bitcron.com") Bitcron
+				. Theme by
+				a(rel="nofollow", href="https://chopstack.com") Cho
+		+load('/template/duoshuo.css?app=blog/maupassant')
+		script
+			function search() {
+				if (document.getElementById('search_value').value) {
+				  location.href = 'http://' + location.host + '?s=' + document.getElementById('search_value').value;
+				}
+				return false;
+			 }

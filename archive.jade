@@ -1,0 +1,20 @@
+extends base.jade
+block title
+	title= "归档 - " + site.title
+block content
+	.body_container:.pure-g
+		.pure-u-1-1
+			#archives
+				h1.archive_title= '文章归档'
+				entries = get_data(type='post',limit=60, sort='desc').group('-date:year')
+				for sub_title, posts in entries
+					.year= sub_title
+					ul.posts_in_year: for post in posts
+						if post.cover
+							li
+								a(href=post.url,title=post.title)
+									.archive-post-cover(style="background:#292929 url({{post.cover.resize(width=300,height=300,fixed=true)}}) center;background-size:cover;")
+									span.date= post.date.format("%m/%d")
+									span.archive-post-title= post.title
+		.pure-u-1-1
+			+h.paginator(style='mini',max_count=4)
